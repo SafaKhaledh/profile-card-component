@@ -1,0 +1,209 @@
+/* Start CSS reset */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* End CSS reset */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background-image: radial-gradient(#08431c 0.65px, #e5e5f7 0.65px);
+  background-size: 13px 13px;
+}
+
+.lights-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  top: 2rem;
+}
+
+.lights-input {
+  display: none;
+}
+
+.lights-label {
+  display: block;
+  width: 4.2rem;
+  height: 1.9rem;
+  border-radius: 1.5rem;
+  background-color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 0.3rem 0.4rem;
+}
+
+.lights-label::after {
+  content: "";
+  display: block;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.lights-input:checked + .lights-label {
+  background-color: white;
+}
+
+.lights-input:checked + .lights-label::after {
+  background-color: green;
+  transform: translateX(2.8rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  overflow: hidden;
+  width: 36.5rem;
+}
+
+.lights {
+  display: none;
+  /* opacity: 0;
+  visibility: hidden; */
+  position: absolute;
+  z-index: 1;
+  transition: all 0.3s;
+}
+
+.bulb-odd {
+  animation: party 0.5s infinite alternate;
+}
+
+.bulb-even {
+  animation: party 0.5s infinite alternate-reverse;
+}
+
+@keyframes party {
+  from {
+    fill: #ff0000;
+  }
+
+  to {
+    fill: #fff500;
+  }
+}
+
+.container:has(.lights-input:checked) .lights {
+  display: block;
+}
+
+.top {
+  height: 10rem;
+  /* background-color: #e5e5f7; */
+  opacity: 0.8;
+  background-image: linear-gradient(135deg, #0e6d91 25%, transparent 25%),
+    linear-gradient(225deg, #0e6d91 25%, transparent 25%),
+    linear-gradient(45deg, #0e6d91 25%, transparent 25%),
+    linear-gradient(315deg, #0e6d91 25%, #e5e5f7 25%);
+  background-position: 10px 0, 10px 0, 0 0, 0 0;
+  background-size: 20px 20px;
+  background-repeat: repeat;
+}
+
+.middle {
+  text-align: center;
+  margin-top: -5rem;
+  z-index: 1;
+}
+
+.pic_content {
+  position: relative;
+}
+
+.pic_content::before {
+  content: "";
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.pic {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: 0.4rem solid #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.7);
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.profession {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.bottom {
+  display: flex;
+  margin-top: 4rem;
+  border-top: 0.1rem solid #c4c4c4;
+}
+
+.column {
+  flex: 1;
+  text-align: center;
+  padding: 1.6rem 1.4rem;
+}
+
+.column:nth-child(2) {
+  border-right: 0.1rem solid #c4c4c4;
+  border-left: 0.1rem solid #c4c4c4;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.username {
+  font-size: 1.2rem;
+}
